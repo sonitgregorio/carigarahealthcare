@@ -46,25 +46,48 @@
                     <td>Medicine Name</td>
                     <td>Amount</td>
                     <td>Remaining Quantity</td>
-                    <td>Action</td>
+                    <td style="text-align:center;max-width: 50px">Action</td>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach ($this->medicinemd->get_medicine() as $key => $value) { ?>
                     <tr>
+
                         <td><?= $value['med_desc'] ?></td>
                         <td><?= $value['price'] ?></td>
                         <td><?= $value['qty']?></td>
-                        <td>
-                            <a class="a-table label label-info edit_user" href="#" data-param="">Edit<span
-                                    class="glyphicon glyphicon-pencil"></span></a>
-                            <a class="a-table label label-danger" href="#" onclick="return confirm('Are you Sure ?')">Delete
-                                <span class="glyphicon glyphicon-trash"></span></a>
+                        <td style="text-align:center">
+                            <a class="a-table label label-info add_stock" href="#" data-param1="<?= $value['id']?>" data-param="<?= $value['qty']?>"><span
+                                    class="glyphicon glyphicon-eye-open"></span>&nbsp;Add Stock</a>
+
                         </td>
                     </tr>
                 <?php } ?>
                 </tbody>
             </table>
+
+            <div class="modal fade  stocks_ad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <form action="/add_stock" method="POST">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" style="color:black" id="myModalLabel">Enter number of stocks:</h4>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" name="rem_qty" class="form-control">
+                            <input type="text" name="medid" class="form-control">
+                           <input type="text" class="form-control" name="t_stocks" required/>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
     <br/>

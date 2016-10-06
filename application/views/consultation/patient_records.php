@@ -5,7 +5,7 @@
 <div class="col-md-3"></div>
 <div class="col-md-9 container_margin">
     <div class="panel p-body">
-        <div class="panel-heading"><h4>Add Patient</h4></div>
+        <div class="panel-heading"><h4>Consultation</h4></div>
         <div class="panel-body">
             <?= $this->session->flashdata('message') ?>
             <form class="form-horizontal" method="POST" action="/insert_patient">
@@ -69,6 +69,7 @@
                     </div>
                 </div>
             </form>
+            <?php  if($this->session->userdata('position') == 3) { ?>
             <form action="/insert_consultation" method="POST" class="form-horizontal">
                 <input name="pid" type="hidden" value="<?= $pid ?>">
                 <div class="col-md-6">
@@ -83,24 +84,31 @@
                     </div>
                 </div>
             </form>
-
+            <?php } ?>
 
             <div class="col-md-12">
                 <br/>
                 <table class="table table-striped table-bordered table-hover">
                     <tr>
                         <th>Consultation Date</th>
-                        <th>Findings</th>
+                        <th>Symptoms</th>
+                        <?php if($this->session->userdata('position') == 4) { ?>
+                          <th>Findings</th>
                         <th>Action</th>
+                        <?php } ?>
                     </tr>
                     <?php foreach ($this->patientsmd->get_consultation($pid) as $key => $value) { ?>
                         <tr>
                             <td style="max-width: 20px"><?= $value['date'] ?></td>
-                            <td><?= $value['findings'] ?></td>
-                            <td style="text-align:right;max-width: 80px">
+                            <td><?= $value['symptoms'] ?></td>
+
+                            <?php if($this->session->userdata('position') == 4) { ?>
+                                <td><?= $value['findings'] ?></td>
+                            <td style="text-align:right;max-width: 150px">
                                 <a href="#" class="btn btn-info consult_user" data-param="<?= $value['id'] ?>"><span class="glyphicon glyphicon-certificate"></span>&nbsp;&nbsp;Add Findings</a>
                                 <a href="/prescription/<?= $value['id'] ?>" class="btn btn-success"><span class="glyphicon glyphicon-hand-up"></span>&nbsp;&nbsp;Prescription</a>
                             </td>
+                            <?php } ?>
                         </tr>
                     <?php } ?>
 
@@ -136,15 +144,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">CID</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="cid">
+                            <input type="hidden" class="form-control" name="cid">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">PID</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="pid">
+                            <input type="hidden" class="form-control" name="pid">
                         </div>
                     </div>
                 </div>

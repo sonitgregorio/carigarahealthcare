@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2016 at 04:55 PM
+-- Generation Time: Oct 06, 2016 at 04:57 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -52,15 +52,17 @@ CREATE TABLE IF NOT EXISTS `tbl_consultation` (
   `pid` int(11) NOT NULL,
   `symptoms` text NOT NULL,
   `date` varchar(20) NOT NULL,
-  `findings` varchar(60) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `findings` varchar(60) NOT NULL,
+  `stats` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_consultation`
 --
 
-INSERT INTO `tbl_consultation` (`id`, `pid`, `symptoms`, `date`, `findings`) VALUES
-(1, 10, 'Lagdos with oro oro', '2016-09-27', 'Utot Ubo');
+INSERT INTO `tbl_consultation` (`id`, `pid`, `symptoms`, `date`, `findings`, `stats`) VALUES
+(1, 10, 'Lagdos with oro oro', '2016-09-27', 'Utot Ubo', 0),
+(2, 11, 'utut obo', '2016-10-06', 'Kisspilitst', 1);
 
 -- --------------------------------------------------------
 
@@ -80,8 +82,8 @@ CREATE TABLE IF NOT EXISTS `tbl_inventory` (
 --
 
 INSERT INTO `tbl_inventory` (`id`, `med_desc`, `price`, `qty`) VALUES
-(1, 'Biogesic', 20.00, 11),
-(13, 'Biogesics', 20.00, 11),
+(1, 'Biogesic', 20.00, 0),
+(13, 'Biogesics', 20.00, 22),
 (14, 'Biogesicss', 20.00, 11),
 (15, 'Biogesicssssss', 20.00, 11),
 (16, 'Biogesicsssssssss', 20.00, 11),
@@ -105,17 +107,19 @@ CREATE TABLE IF NOT EXISTS `tbl_party` (
   `position` int(11) NOT NULL,
   `age` int(11) NOT NULL,
   `dob` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_party`
 --
 
 INSERT INTO `tbl_party` (`id`, `firstname`, `lastname`, `address`, `contact`, `civil_status`, `gender`, `email_address`, `position`, `age`, `dob`) VALUES
-(7, 'juans', 'tamads', 'Sagkahan Tacloban Citys', '09172580624', 'Divorced', 'Male', 'juans@tamad.com', 3, 0, ''),
-(8, 'juano', 'tamadin', 'Sagkahan Tacloban City', '09172580624', 'Single', 'Male', 'juano@tamadi.com', 1, 0, ''),
 (10, 'sdasd', 'tamadin', 'asdasd', '09172580624', 'Divorced', 'Femal', '', 6, 90, '11/02/2015'),
-(11, 'asd', 'sadasdsad', 'weqwe', 'qweqweq', 'Maried', 'Femal', '', 6, 9, '2007-09-26');
+(11, 'asd', 'sadasdsad', 'weqwe', 'qweqweq', 'Maried', 'Femal', '', 6, 9, '2007-09-26'),
+(12, 'Doctors', 'Doctor', 'doctor street', '09172580624', 'Single', 'Male', 'doctor@gmail.com', 4, 0, ''),
+(13, 'front', 'front', 'front street', '09172580624', 'Single', 'Male', 'front@gmail.com', 3, 0, ''),
+(14, 'pharma', 'pharma', 'pharma street', '09172580624', 'Maried', 'Femal', 'pharma@gmail.com', 2, 0, ''),
+(15, 'admins', 'admin', 'admin street', '09172580624', 'Single', 'Male', 'admin@gmail.com', 1, 0, '');
 
 -- --------------------------------------------------------
 
@@ -150,14 +154,60 @@ CREATE TABLE IF NOT EXISTS `tbl_prescription` (
   `mid` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
   `note` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_prescription`
 --
 
 INSERT INTO `tbl_prescription` (`id`, `cid`, `mid`, `qty`, `note`) VALUES
-(3, 1, 13, 3, '20 kada adlaw');
+(4, 1, 14, 2, 'Pag hugas kada adlaw'),
+(5, 1, 1, 1, 'ok'),
+(6, 2, 13, 6, '2'),
+(7, 2, 1, 2, '3x a day'),
+(8, 2, 1, 2, '3x a day'),
+(9, 2, 1, 1, '20 kada adlaw');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_queue`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_queue` (
+`id` int(11) NOT NULL,
+  `cid` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_supply`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_supply` (
+`id` int(11) NOT NULL,
+  `equipment` varchar(20) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `amount` double(11,2) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_supply`
+--
+
+INSERT INTO `tbl_supply` (`id`, `equipment`, `quantity`, `amount`) VALUES
+(1, 'dfdfd', 11, 20.00),
+(2, 'dfdfd', 11, 20.00),
+(3, 'dfdfd', 11, 20.00),
+(4, 'dfdfd', 11, 20.00),
+(5, 'dfdfd', 11, 20.00),
+(6, 'dfdfd', 11, 20.00),
+(7, 'dfdfd', 11, 20.00),
+(8, 'dfdfd', 11, 20.00),
+(9, 'dfdfd', 22, 12.00),
+(10, 'sad', 22, 2.00),
+(11, 'asd', 30, 20.00);
 
 -- --------------------------------------------------------
 
@@ -171,15 +221,17 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
   `password` text NOT NULL,
   `position` int(11) NOT NULL,
   `pid` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_users`
 --
 
 INSERT INTO `tbl_users` (`id`, `username`, `password`, `position`, `pid`) VALUES
-(7, 'juan', '40be4e59b9a2a2b5dffb918c0e86b3d7', 3, 7),
-(8, 'juano123', '40be4e59b9a2a2b5dffb918c0e86b3d7', 1, 8);
+(10, 'doctor', '40be4e59b9a2a2b5dffb918c0e86b3d7', 4, 12),
+(11, 'front', '40be4e59b9a2a2b5dffb918c0e86b3d7', 3, 13),
+(12, 'pharma', '40be4e59b9a2a2b5dffb918c0e86b3d7', 2, 14),
+(13, 'admin', '40be4e59b9a2a2b5dffb918c0e86b3d7', 1, 15);
 
 --
 -- Indexes for dumped tables
@@ -222,6 +274,18 @@ ALTER TABLE `tbl_prescription`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_queue`
+--
+ALTER TABLE `tbl_queue`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_supply`
+--
+ALTER TABLE `tbl_supply`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
@@ -240,7 +304,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `tbl_consultation`
 --
 ALTER TABLE `tbl_consultation`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_inventory`
 --
@@ -250,7 +314,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 -- AUTO_INCREMENT for table `tbl_party`
 --
 ALTER TABLE `tbl_party`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `tbl_position`
 --
@@ -260,12 +324,22 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `tbl_prescription`
 --
 ALTER TABLE `tbl_prescription`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `tbl_queue`
+--
+ALTER TABLE `tbl_queue`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_supply`
+--
+ALTER TABLE `tbl_supply`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

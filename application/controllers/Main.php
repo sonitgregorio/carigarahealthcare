@@ -27,6 +27,7 @@
 			if ($result) 
 			{
 				$this->session->set_userdata('uid', $result['id']);
+                $this->session->set_userdata('position', $result['position']);
 			}
 			else
 			{

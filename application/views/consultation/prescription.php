@@ -4,7 +4,7 @@ $total =0;
 <div class="col-md-3"></div>
 <div class="col-md-9 container_margin">
     <div class="panel p-body">
-        <div class="panel-heading"><h4>Add Employee</h4></div>
+        <div class="panel-heading"><h4>Prescription</h4></div>
         <div class="panel-body">
             <?= $this->session->flashdata('message') ?>
             <form class="form-horizontal" method="POST" action="/save_prescribe">
@@ -80,6 +80,11 @@ $total =0;
                 </tr>
 
             </table>
+
+            <div class="pull-right">
+                <a href="/print/<?= $cid ?>" class="btn btn-success">Print</a>
+                <a href="/consultation_done/<?= $cid ?>" class="btn btn-primary">Done</a>
+            </div>
         </div>
     </div>
     <br/>

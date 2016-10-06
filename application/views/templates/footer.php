@@ -4,11 +4,35 @@
 <script type="text/javascript" src="<?= base_url() ?>assets/js/jquery.js"></script>
 
 <script type="text/javascript" src="<?= base_url() ?>assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="<?= base_url() ?>assets/js/datatables.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+        $('#dataTable').DataTable();
+
+
         $('#add_branch').click(function () {
             $('.show_modal').modal('show');
         });
+
+        $('.add_stock').click(function(){
+             $('.stocks_ad').modal();
+            var q = $(this).data('param');
+            var id = $(this).data('param1');
+            var s = $("#t_stocks").val() + q;
+            $('input[name=rem_qty').val(q);
+            $('input[name=medid').val(id);
+        });
+
+//        function add_stocks(s, id){
+//            $('#ad_st').submit(function() {
+//             var s = $("#t_stocks").val() + q;
+//                $.post('/medicine/add_stock', {s: s, id: id}, function (o) {
+//
+//                });
+//                o.preventDefault();
+//            });
+//        }
+
 
         $('.edit_user').click(function () {
             x = $(this).data('param');
@@ -24,7 +48,7 @@
                 $('input[name=username]').val(users.username);
                 $('input[name=password]').val(users.password);
                 $('input[name=cpassword]').val(users.password);
-
+                $('#consult_s').modal('show');
             });
         });
 

@@ -24,5 +24,10 @@ class  Patients extends CI_Controller
         $this->api->set_session_message('success', 'Patient Successfully Added', 'message');
         redirect('/patient');
     }
+    public function patient_list()
+    {
+        $this->api->load_view('patient/patient_list', '', 'patientsmd', array('nav' => 'patient_list'));
+
+    }
 
 }

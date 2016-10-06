@@ -1,4 +1,6 @@
-<!--<div class="col-md-3"></div>-->
+
+<div class="col-md-3"></div>
+<?php echo $this->session->userdata('position') ?>
 <!--	<div class="col-md-9 body-container">-->
 <!--		<div class="panel p-body">-->
 <!--		<div class="panel-heading search">-->

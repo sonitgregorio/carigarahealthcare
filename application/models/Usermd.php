@@ -36,6 +36,6 @@
             $this->db->delete('tbl_party');
 
             $this->db->where('pid', $id);
-            $this->db->delet('tbl_users');
+            $this->db->delete('tbl_users');
         }
     }

@@ -103,33 +103,7 @@
 							<button type="submit" class="btn btn-primary">Save</button>
 						</div>
 					</div>
-
 				</form>
-
-				<div class="col-md-12">
-					<br/>
-					<table class="table table-striped table-bordered table-hover">
-						<tr>
-							<th>Name</th>
-							<th>Contact</th>
-							<th>Gender</th>
-							<th>Position</th>
-							<th>Action</th>
-						</tr>
-						<?php foreach ($this->usermd->get_users() as $key => $value){ ?>
-							<tr>
-								<td><?= $value['firstname'] . ' ' . $value['lastname'] ?></td>
-								<td><?= $value['contact'] ?></td>
-								<td><?= $value['gender'] ?></td>
-								<td><?= $value['description'] ?></td>
-								<td><a class="a-table label label-info edit_user" href="#" data-param="<?= $value['id'] ?>">Edit<span class="glyphicon glyphicon-pencil"></span></a>
-									<a class="a-table label label-danger" href="/delete/<?= $value['id'] ?>" onclick="return confirm('Are you Sure ?')">Delete <span class="glyphicon glyphicon-trash"></span></a>
-								</td>
-							</tr>
-						<?php } ?>
-
-					</table>
-				</div>
 			</div>
 	</div>
 	<br/>

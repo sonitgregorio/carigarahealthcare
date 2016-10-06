@@ -26,6 +26,8 @@ class User extends CI_Controller
             $this->usermd->update_data($data, $this->input->post('uid'));
             $this->api->set_session_message('success', 'You Have Successfully Updated User Information', 'message');
 
+            redirect('/employee_list');
+
         }else{
             $id = $this->usermd->insert_data($data);
             $creds = array(
@@ -54,6 +56,8 @@ class User extends CI_Controller
     {
         $this->load->model('usermd');
         $this->usermd->delete($id);
+        redirect('/employee_list');
+
 
     }
 }

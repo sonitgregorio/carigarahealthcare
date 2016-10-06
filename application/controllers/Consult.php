@@ -42,8 +42,22 @@ class Consult extends CI_Controller
         $this->patientsmd->save_findings($data, $this->input->post('cid'));
         redirect('view_records/'.$this->input->post('pid'));
     }
+    public function consultation_done($id){
+        $this->db->where('id', $id);
+        $this->db->update('tbl_consultation', array('stats' => 1));
+        $this->db->where('cid', $id);
+        $this->db->delete('tbl_queue');
+        $this->api->set_session_message('success', 'Consultation Done.', 'message');
+        redirect('/consultation');
+    }
     public function prescription($id)
     {
         $this->api->load_view('consultation/prescription', array('cid' => $id), array('patientsmd', 'medicinemd'), array('nav' => 'consult'));
+    }
+    public function prints($id)
+    {
+        $this->load->model('patientsmd');
+        $this->load->model('medicinemd');
+        $this->load->view('consultation/print', array('cid' => $id));
     }
 }

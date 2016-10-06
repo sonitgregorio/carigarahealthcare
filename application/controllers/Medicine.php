@@ -71,4 +71,29 @@ class Medicine extends CI_Controller
         $this->medicinemd->delete_pre($id);
         redirect('/prescription/'.$cid);
     }
+    public function add_stock()
+    {
+        $this->load->model('medicinemd');
+        $rem = $this->input->post('rem_qty');
+        $add = $this->input->post('t_stocks');
+        $id = $this->input->post('medid');
+        echo $add;
+
+        $this->medicinemd->add_stocks($id, array('qty' => $rem + $add));
+        redirect('/inventory');
+    }
+    public function save_eq()
+    {
+        $this->load->model('medicinemd');
+        $eqname = $this->input->post('eqname');
+        $sup_amount = $this->input->post('sup_amount');
+        $sup_qty = $this->input->post('sup_qty');
+
+        $this->medicinemd->add_eq(array('equipment' => $eqname , 'quantity' => $sup_qty, 'amount' => $sup_amount ));
+        redirect('/equipment');
+    }
+    public function load_equipment()
+    {
+        $this->api->load_view('equipment/equipments', '', 'medicinemd', array('nav' => 'equipment'));
+    }
 }

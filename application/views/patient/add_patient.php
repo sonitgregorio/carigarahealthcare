@@ -78,28 +78,28 @@
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </form>
-            <div class="col-md-12">
-                <br/>
-                <table class="table table-striped table-bordered table-hover">
-                    <tr>
-                        <th>Name</th>
-                        <th>Contact</th>
-                        <th>Gender</th>
-                        <th>Age</th>
-                        <th>Date of Birth</th>
-                    </tr>
-                    <?php foreach ($this->patientsmd->get_patient() as $key => $value) { ?>
-                        <tr>
-                            <td><?= $value['firstname'] . ' ' . $value['lastname'] ?></td>
-                            <td><?= $value['contact'] ?></td>
-                            <td><?= $value['gender'] ?></td>
-                            <td><?= $value['age'] ?></td>
-                            <td><?= $value['dob'] ?></td>
-                        </tr>
-                    <?php } ?>
-
-                </table>
-            </div>
+<!--            <div class="col-md-12">-->
+<!--                <br/>-->
+<!--                <table class="table table-striped table-bordered table-hover">-->
+<!--                    <tr>-->
+<!--                        <th>Name</th>-->
+<!--                        <th>Contact</th>-->
+<!--                        <th>Gender</th>-->
+<!--                        <th>Age</th>-->
+<!--                        <th>Date of Birth</th>-->
+<!--                    </tr>-->
+<!--                    --><?php //foreach ($this->patientsmd->get_patient() as $key => $value) { ?>
+<!--                        <tr>-->
+<!--                            <td>--><?//= $value['firstname'] . ' ' . $value['lastname'] ?><!--</td>-->
+<!--                            <td>--><?//= $value['contact'] ?><!--</td>-->
+<!--                            <td>--><?//= $value['gender'] ?><!--</td>-->
+<!--                            <td>--><?//= $value['age'] ?><!--</td>-->
+<!--                            <td>--><?//= $value['dob'] ?><!--</td>-->
+<!--                        </tr>-->
+<!--                    --><?php //} ?>
+<!---->
+<!--                </table>-->
+<!--            </div>-->
         </div>
     </div>
     <br/>
