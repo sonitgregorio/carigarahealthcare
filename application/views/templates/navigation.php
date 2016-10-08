@@ -87,6 +87,11 @@ $name     = $row[2]." ".$row[4];*/
                         </a>
                     </li>
                 <?php } ?>
+                <li class="list-group-item ">
+                        <a class="menu <?= $nav == 'view_payslip' ? 'active' : '' ?>" href="/view_payslip">
+                            <span class="glyphicon glyphicon-tags"></span>&nbsp; &nbsp; Payslip
+                        </a>
+                    </li>
 
 
                 <li class="list-group-item ">

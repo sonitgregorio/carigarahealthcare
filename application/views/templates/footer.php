@@ -134,6 +134,47 @@
         }
         return age;
     }
+
+
+    function earnings(input_value)
+    {
+        var save_earnings = document.getElementById('total_e');
+        var total_d = document.getElementById('total_d');
+        var total_earn = document.getElementById('total_earnings');
+        var total_e = 0;
+        if (save_earnings.value !== 'null' || save_earnings.value) {
+            total_e = Number(input_value) + Number(save_earnings.value);
+            save_earnings.value = total_e;
+        }else{
+             save_earnings.value = Number(input_value)  - Number(total_d.value);
+             total_e = input_value;
+        }
+
+        total_earn.innerHTML = total_e.toFixed(2);
+        document.getElementById('net_income').innerHTML = (total_e - Number(total_d.value)).toFixed(2);
+        
+    }
+    function deductions(input_value)
+    {
+        var total_d = document.getElementById('total_d');
+        var total_e = document.getElementById('total_e');
+        var total_deduction = document.getElementById('total_deduction');
+        var total_de = 0;
+        var total_earn = 0;
+        if (total_d.value !== 'null' || total_d.value) {
+            total_de = Number(input_value) + Number(total_d.value);
+            total_earn = Number(total_e.value) - Number(total_de);
+            total_d.value = total_de;
+        }else{
+            total_de = Number(input_value)
+            total_earn = Number(total_e.value) - Number(total_de);
+            total_d.value = total_de;
+        }
+        total_deduction.innerHTML = total_de.toFixed(2);
+        document.getElementById('net_income').innerHTML = total_earn.toFixed(2);
+    }
+
+
 </script>
 </body>
 
