@@ -51,6 +51,11 @@ $name     = $row[2]." ".$row[4];*/
                             <span class="glyphicon glyphicon-tint"></span>&nbsp; &nbsp; Equipment List
                         </a>
                     </li>
+                    <li class="list-group-item ">
+                        <a class="menu <?= $nav == 'payroll' ? 'active' : '' ?>" href="/payrolls">
+                            <span class="glyphicon glyphicon-stats"></span>&nbsp; &nbsp; Payroll
+                        </a>
+                    </li>
                 <?php } ?>
                 <?php if ($this->session->userdata('position') == 3) { ?>
                     <li class="list-group-item"><a class="menu">

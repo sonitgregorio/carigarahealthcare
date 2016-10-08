@@ -76,3 +76,4 @@ $route['equipment']                = 'medicine/load_equipment';
 $route['save_eq']                  = 'medicine/save_eq';
 $route['consultation_done/(:num)'] = 'consult/consultation_done/$1';
 $route['print/(:num)']             = 'consult/prints/$1';
+$route['payrolls']                  = 'payroll/payrolls';

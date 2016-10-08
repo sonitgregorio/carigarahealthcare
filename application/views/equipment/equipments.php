@@ -45,26 +45,26 @@
             <table class="table table-striped table-bordered table-hover">
                 <thead>
                 <tr>
-                    <td>Medicine Name</td>
+                    <td>Equipment Name</td>
                     <td>Amount</td>
-                    <td>Remaining Quantity</td>
-                    <td style="text-align:center;max-width: 50px">Action</td>
+                    <td>Quantity</td>
+<!--                    <td style="text-align:center;max-width: 50px">Action</td>-->
                 </tr>
                 </thead>
                 <tbody>
-                <?php //foreach ($this->medicinemd->get_medicine() as $key => $value) { ?>
+                <?php foreach ($this->medicinemd->get_supp() as $key => $value) { ?>
                 <tr>
 
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td style="text-align:center">
-                        <a class="a-table label label-info add_stock" href="#" data-param1="" data-param=""><span
-                                class="glyphicon glyphicon-eye-open"></span>&nbsp;Add Stock</a>
-
-                    </td>
+                    <td><?= $value['equipment'] ?></td>
+                    <td><?= $value['amount'] ?></td>
+                    <td><?= $value['quantity'] ?></td>
+<!--                    <td style="text-align:center">-->
+<!--                        <a class="a-table label label-info add_stock" href="#" data-param1="" data-param=""><span-->
+<!--                                class="glyphicon glyphicon-eye-open"></span>&nbsp;Add Stock</a>-->
+<!---->
+<!--                    </td>-->
                 </tr>
-                <?php //} ?>
+                <?php } ?>
                 </tbody>
             </table>
 

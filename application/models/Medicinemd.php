@@ -69,6 +69,10 @@ class Medicinemd extends CI_Model
         $this->db->select('CONCAT (b.firstname, " ",b.lastname) fname');
         return $this->db->get('tbl_consultation a, tbl_party b')->row_array();
     }
+    public function get_supp()
+    {
+        return $this->db->get('tbl_supply')->result_array();
+    }
 
 
 
