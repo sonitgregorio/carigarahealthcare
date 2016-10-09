@@ -23,6 +23,16 @@ $name     = $row[2]." ".$row[4];*/
                         <h2 class="hd-title"><a class="title" href="<?php echo base_url(); ?>">Carigara Health Care
                                 Center</a></h2>
                     </div>
+
+
+                </div>
+                 <div class="collapse navbar-collapse pull-right" id = "header1">
+                
+                    <p class="navbar-text top-sign2 navbar-right" style="color: #FFF">Position: <?php echo $this->session->userdata('pos') ?></p>
+                  <p class="navbar-text top-sign2 navbar-right" style="color: #FFF">Signed in as : <?php echo $this->session->userdata('fname') ?>
+                      <a href="index.php?page=home" class="navbar-link"><?php //echo $_SESSION['uname']; ?></a>
+                </p>
+                
                 </div>
             </div>
         </nav>

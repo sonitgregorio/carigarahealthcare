@@ -75,7 +75,7 @@ class Payroll extends CI_Controller
             );
 
         $x = $this->payrollmd->get_exist($pid, $ppid);
-        if($x < 0)
+        if($x <= 0)
         {
             $this->payrollmd->insert_payslip($data);
             $this->api->set_session_message('success', 'Successfully Saved!', 'message');

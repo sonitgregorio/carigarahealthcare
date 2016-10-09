@@ -76,7 +76,28 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Syptoms</label>
                         <div class="col-sm-9 padding_z">
-                            <textarea name="symptoms" rows="5" class="form-control" style="resize: none" placeholder="Enter The Symptoms of the patient"></textarea>
+                            <textarea name="symptoms" rows="6" class="form-control" style="resize: none" placeholder="Enter The Symptoms of the patient"></textarea>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Height</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="height" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Weight</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="weight" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Blood Pressure</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="pressure" class="form-control" required>
                         </div>
                     </div>
                     <div class="pull-right">
@@ -135,6 +156,24 @@
                         <label class="col-sm-3 control-label">Enter Symptoms</label>
                         <div class="col-sm-9">
                             <textarea class="form-control" rows="10" name="symptomss"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Height</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="height" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Weight</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="weight" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Blood Pressure</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="pressure" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">

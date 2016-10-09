@@ -60,6 +60,9 @@
                var result = JSON.parse(response);
                 $('textarea[name=symptomss]').val(result.symptoms);
                 $('input[name=findings]').val(result.findings);
+                $('input[name=weight]').val(result.weight);
+                $('input[name=height]').val(result.height);
+                $('input[name=pressure]').val(result.pressure);
                 $('input[name=cid]').val(result.id);
                 $('input[name=pid]').val(result.pid);
                 $('#consult').modal('show');

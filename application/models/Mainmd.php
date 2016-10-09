@@ -9,7 +9,10 @@ class Mainmd extends CI_Model
     {
         $this->db->where('username', $username);
         $this->db->where('password', MD5($password));
-        return $this->db->get('tbl_users')->row_array();
+        $this->db->where('tbl_party.id = tbl_users.pid');
+        $this->db->where('tbl_position.id = tbl_users.position');
+        $this->db->select('tbl_users.*, tbl_party.firstname, tbl_party.firstname, tbl_position.description');
+        return $this->db->get('tbl_users, tbl_party, tbl_position')->row_array();
     }
 
     public function messageForm($type = 'success', $message, $name = 'message')

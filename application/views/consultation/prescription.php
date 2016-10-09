@@ -82,7 +82,7 @@ $total =0;
             </table>
 
             <div class="pull-right">
-                <a href="/print/<?= $cid ?>" class="btn btn-success">Print</a>
+                <a href="/print/<?= $cid ?>" class="btn btn-success" target="_blank">Print</a>
                 <a href="/consultation_done/<?= $cid ?>" class="btn btn-primary">Done</a>
             </div>
         </div>

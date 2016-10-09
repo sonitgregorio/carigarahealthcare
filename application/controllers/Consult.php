@@ -17,6 +17,9 @@ class Consult extends CI_Controller
         $data = array(
             'pid' => $pid,
             'symptoms' => $this->input->post('symptoms'),
+            'height' => $this->input->post('height'),
+            'weight' => $this->input->post('weight'),
+            'pressure' => $this->input->post('pressure'),
             'date' => Date('Y-m-d'),
         );
         $this->patientsmd->insert_consultation($data);

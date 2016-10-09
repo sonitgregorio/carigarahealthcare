@@ -29,6 +29,8 @@
 				$this->session->set_userdata('uid', $result['id']);
 				$this->session->set_userdata('pid', $result['pid']);
                 $this->session->set_userdata('position', $result['position']);
+                $this->session->set_userdata('fname', strtoupper($result['firstname'] . ' '. $result['lastname']));
+                $this->session->set_userdata('pos', $result['description']);
 			}
 			else
 			{
